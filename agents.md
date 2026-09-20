@@ -31,6 +31,8 @@ Use this template to generate a project status document from a local software re
 
 ```bash
 git branch --show-current
+git rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
 git status --short --branch
 git log -1 --pretty=format:'%h - %an - %ad - %s'
 git rev-list --left-right --count @{upstream}...HEAD
