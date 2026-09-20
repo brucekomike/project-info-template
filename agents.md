@@ -2,6 +2,22 @@
 
 Use this template to generate a project status document from a local software repository.
 
+## 0) Output Settings
+
+- **Default output language**: `zh_CN`
+- **Rendering options**:
+  - HTML
+  - PDF (A4 paper)
+- **Suggested output files**:
+  - `project-info.html`
+  - `project-info.pdf`
+- **Optional rendering commands**:
+
+```bash
+pandoc agents.md -o project-info.html -V lang=zh_CN
+pandoc agents.md -o project-info.pdf -V lang=zh_CN -V papersize=a4
+```
+
 ## 1) Project Info
 
 - **Project name**:
