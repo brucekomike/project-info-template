@@ -63,9 +63,9 @@ git log --oneline -n 5
 - **Patch / dependency update cadence**:
 - **Incident response contact / escalation path**:
 
-## 4) Milestones and Deadlines (DDL)
+## 4) Milestones and Deadlines
 
-| Milestone | Description | Owner | Deadline (DDL) | Status | Notes |
+| Milestone | Description | Owner | Deadline | Status | Notes |
 |---|---|---|---|---|---|
 | M1 |  |  | YYYY-MM-DD | Not Started |  |
 | M2 |  |  | YYYY-MM-DD | Not Started |  |
@@ -76,4 +76,3 @@ git log --oneline -n 5
 - **Top risks**:
 - **Blocking issues**:
 - **Decisions needed**:
-
