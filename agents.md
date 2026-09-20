@@ -31,11 +31,11 @@ Use this template to generate a project status document from a local software re
 
 ```bash
 git branch --show-current
-git rev-parse --abbrev-ref --symbolic-full-name @{upstream}
-git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2>/dev/null || echo "No upstream branch configured"
+git remote show origin 2>/dev/null | sed -n '/HEAD branch/s/.*: //p'
 git status --short --branch
 git log -1 --pretty=format:'%h - %an - %ad - %s'
-git rev-list --left-right --count @{upstream}...HEAD
+git rev-list --left-right --count @{upstream}...HEAD 2>/dev/null || echo "No upstream branch configured"
 git tag --sort=-creatordate | head -n 5
 git log --oneline -n 5
 ```
