@@ -29,13 +29,16 @@ Use this template to generate a project status document from a local software re
 
 ### Optional local commands
 
+Commands using `@{upstream}` require an upstream branch to be configured for the current branch.
+If these commands fail for other reasons, investigate the underlying git error directly.
+
 ```bash
 git branch --show-current
-git rev-parse --abbrev-ref --symbolic-full-name @{upstream} 2>/dev/null || echo "No upstream branch configured"
-git remote show origin 2>/dev/null | sed -n '/HEAD branch/s/.*: //p'
+git rev-parse --abbrev-ref --symbolic-full-name @{upstream}
+git remote | head -n 1 | xargs -I{} git remote show {} | sed -n '/HEAD branch/s/.*: //p'
 git status --short --branch
 git log -1 --pretty=format:'%h - %an - %ad - %s'
-git rev-list --left-right --count @{upstream}...HEAD 2>/dev/null || echo "No upstream branch configured"
+git rev-list --left-right --count @{upstream}...HEAD
 git tag --sort=-creatordate | head -n 5
 git log --oneline -n 5
 ```
