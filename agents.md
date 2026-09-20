@@ -32,7 +32,7 @@ Use this template to generate a project status document from a local software re
 ```bash
 git branch --show-current
 git status --short --branch
-git log -1 --pretty=format:'%h | %an | %ad | %s'
+git log -1 --pretty=format:'%h - %an - %ad - %s'
 git rev-list --left-right --count @{upstream}...HEAD
 git tag --sort=-creatordate | head -n 5
 git log --oneline -n 5
